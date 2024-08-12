@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap");
 
 .navbar {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -12,6 +12,7 @@
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: italic;
+    z-index: 1000;
 }
 
 .navbar-list {
@@ -40,31 +41,29 @@
     color: goldenrod;
 }
 
-
 .logo {
-    max-width: 100%;
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Center align content */
+}
+
+
+.image {
+    max-width: 50%;
         height: auto;
         display: block;
         margin: 0 auto;
+        animation: fadeInUp 1s ease-out forwards;
+        opacity: 0;
+        object-fit: cover;
+            
 }
 
-.music-player {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.music-player audio {
-    width: 100%;
-        /* Make the audio controls full width */
-        outline: none;
-}
 
 body {
-font-family: "Exo", sans-serif;
+    cursor: pointer;
+    font-family: "Exo", sans-serif;
     font-optical-sizing: auto;
     font-weight:300;
     font-size: 20px;
@@ -80,33 +79,54 @@ font-family: "Exo", sans-serif;
     font-size: 50px;
     font-style: italic;
     text-align: center;
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
 }
 
 
 .youtube {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    /* Optional: add some spacing above and below */
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
 }
 
 /* Add a border to the iframe */
 .youtube iframe {
-    border: 5px solid #3498db;
-    /* Blue border, 5px thick */
-    border-radius: 10px;
-    /* Rounded corners */
-    max-width: 100%;
-    /* Responsive width */
-    height: auto;
-    /* Adjust height automatically */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.h3 {
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h3 {
         font-optical-sizing: auto;
         font-weight: 50;
         font-size:25px;
         font-style: normal;
+        animation: fadeInUp 1s ease-out forwards;
+        opacity: 0;
+        
+}
+
+.animate {
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 /* General styling for social media icons container */
